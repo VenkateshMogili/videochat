@@ -31,13 +31,13 @@
 
   mute.addEventListener('click',(e)=>{
     mute.style.display='none';
-    unmute.style.display='block';
+    unmute.style.display='inline-block';
     localVideo.muted = true;
   });
 
   unmute.addEventListener('click',(e)=>{
     unmute.style.display='none';
-    mute.style.display='block';
+    mute.style.display='inline-block';
     localVideo.muted = false;
   });
 

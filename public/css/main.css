@@ -6,12 +6,22 @@ html {
 	object-fit: cover;
 }
 .localVideo {
-	width: 20%;
-	position: absolute;
-	z-index: 2;
-	bottom: 10px;
-	left: 10px;
-	display: block;
+  width: 300px;
+    position: absolute;
+    z-index: 2;
+    bottom: 45px;
+    right: 20px;
+    display: block;
+    border: 1px solid white;
+}
+@media only screen and (max-width: 360px) {
+  body {
+    background-color: teal!important;
+  }
+  .localVideo{
+    width:150px;
+    right:5px;
+  }
 }
 .remoteVideos {
 	width: 100%;
@@ -45,9 +55,6 @@ body {
 }
 .callend{
   z-index: 2;
-    position: absolute;
-    left: 280px;
-    bottom: 0;
     border-radius: 100px;
     width: 30px;
     height: 30px;
@@ -55,14 +62,21 @@ body {
     background-color: tomato;
     color: white;
     font-size: 20px;
-    margin-bottom:15px;
+    margin:0 30px 0 30px;
 }
 #mute{
-  left:1%;
   background-color: #3399cc;
 }
 #unmute{
   display:none;
-  left:1%;
   background-color: #3399cc;
+}
+.controls{
+  z-index: 2;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: teal;
 }
