@@ -6,11 +6,11 @@ let port;
 if (credentials.key && credentials.cert) {
   const https = require('https');
   server = https.createServer(credentials, app);
-  port = 443;
+  port = process.env.PORT || 443;
 } else {
   const http = require('http');
   server = http.createServer(app);
-  port = 3000;
+  port = process.env.PORT || 3000;
 }
 const io = require('socket.io')(server);
 const RoomService = require('./RoomService')(io);
