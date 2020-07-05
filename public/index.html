@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Video Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Video Chat.">
+    <meta name="author" content="Brian Mau">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <video class="localVideo" playsinline autoplay muted></video>
+    <div class="remoteVideos"></div>
+    <button class="callend"><i class="fa fa-phone"></i></button>
+    <button class="callend" id="mute"><i class="fa fa-microphone"></i></button>
+    <button class="callend" id="unmute"><i class="fa fa-microphone-slash"></i></button>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src="/js/video.js"></script>
+  </body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="WebRTC Video Broadcast.">
+    <meta name="author" content="Brian Mau">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <video playsinline autoplay muted></video>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+    <script src="/watch.js"></script>
+  </body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Video Broadcast.">
+    <meta name="author" content="Brian Mau">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <img />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+    <script>
+      watch();
+    </script>
+  </body>
+
+</html> -->
