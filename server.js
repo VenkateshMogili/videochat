@@ -6,7 +6,7 @@ let port;
 if (credentials.key && credentials.cert) {
   const https = require('https');
   server = https.createServer(credentials, app);
-  port = process.env.PORT || 443;
+  port = 443;
 } else {
   const http = require('http');
   server = http.createServer(app);
