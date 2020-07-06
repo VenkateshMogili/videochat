@@ -48,7 +48,15 @@
 
   share.addEventListener("click",(e)=>{
     let shared_url = 'To join the video meeting, click this link:%0Ahttps://online-video-chat.herokuapp.com'+location.pathname;
-    window.open('https://web.whatsapp.com/send?text=' + shared_url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=1000,height=500");
+    if(navigator.platform=='Android' || navigator.platform=='iOS'){
+    navigator.clipboard.writeText(shared_url).then(function() {
+      alert('Copied Meeting URL Successfully');
+    }, function(err) {
+      alert('Something went wrong');
+    });
+    } else{
+      window.open('https://web.whatsapp.com/send?text=' + shared_url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=1000,height=500");
+    }
   });
 
   socket.on('bye', function(id) {
