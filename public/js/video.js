@@ -48,6 +48,7 @@
 
   share.addEventListener("click",(e)=>{
     let shared_url = 'To join the video meeting, click this link:%0Ahttps://online-video-chat.herokuapp.com'+location.pathname;
+    alert(navigator.platform);
     if(navigator.platform=='Android' || navigator.platform=='iOS'){
     navigator.clipboard.writeText(shared_url).then(function() {
       alert('Copied Meeting URL Successfully');
