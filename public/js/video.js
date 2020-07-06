@@ -6,6 +6,7 @@
   const callend = document.querySelector('.callend');
   const mute = document.getElementById("mute");
   const unmute = document.getElementById("unmute");
+  const share = document.getElementById("share");
   const peerConnections = {};
 
   let room = !location.pathname.substring(1) ? 'home' : location.pathname.substring(1);
@@ -42,7 +43,12 @@
   });
 
   callend.addEventListener('click',(e)=>{
-    socket.close();
+    window.location.href="/";
+  });
+
+  share.addEventListener("click",(e)=>{
+    let shared_url = 'To join the video meeting, click this link:%0Ahttps://online-video-chat.herokuapp.com'+location.pathname;
+    window.open('https://web.whatsapp.com/send?text=' + shared_url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=1000,height=500");
   });
 
   socket.on('bye', function(id) {

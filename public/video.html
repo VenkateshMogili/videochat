@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Videomate</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Videomate meeting">
+    <meta name="author" content="Venkatesh Mogili">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav>
+      <h1 style="float: left;"><i class="fa fa-video-camera" style="color:whitesmoke"></i> Videomate</h1>
+      <h1 style="float: right;">Made In <i class="fa fa-heart" style="color:tomato"></i> India</h1>
+    </nav>
+    <div class="authentication">
+      <div class="meetingDescription">
+        <button id="startMeeting">
+          <i class="fa fa-video-camera"></i> Start Meeting
+        </button>
+        <p class="orDesc">OR</p>
+        <input type="text" placeholder="Enter meeting code" name="meetingcode" value="" id="meetingcode"
+          onchange="checkJoin(this.value)" />
+        <br />
+        <button id="joinMeeting" onclick="joinMeeting()">
+          <i class="fa fa-user-plus"></i> Join Meeting
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <h1 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i
+          class="fa fa-user"></i> Developer: Venkatesh Mogili</h1>
+    </footer>
+    <script>
+      const startMeeting = document.getElementById("startMeeting");
+      var meetingCode = '';
+      startMeeting.addEventListener("click", (e) => {
+        let roomName = randStr(3) + "-" + randStr(4) + "-" + randStr(3);
+        window.location.href = "/" + roomName;
+      });
+
+      function randStr(len, chars = 'abcdefghijklmnopqrstuvwxyz') {
+        let s = '';
+        while (len--) s += chars[Math.floor(Math.random() * chars.length)];
+        return s;
+      }
+
+      function checkJoin(code) {
+        if (code.length == 12) {
+          meetingCode = code;
+        }
+      }
+      function joinMeeting() {
+        if (meetingCode.length == 12) {
+          window.location.href = "/" + meetingCode;
+        } else {
+          alert("Invalid meeting code");
+        }
+      }
+    </script>
+  </body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="WebRTC Video Broadcast.">
+    <meta name="author" content="Venkatesh Mogili">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <video playsinline autoplay muted></video>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+    <script src="/watch.js"></script>
+  </body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Video Broadcast.">
+    <meta name="author" content="Venkatesh Mogili">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <img />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+    <script>
+      watch();
+    </script>
+  </body>
+
+</html> -->
