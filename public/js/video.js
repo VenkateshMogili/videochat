@@ -48,7 +48,7 @@
 
   share.addEventListener("click",(e)=>{
     let shared_url = 'To join the video meeting, click this link:%0Ahttps://online-video-chat.herokuapp.com'+location.pathname;
-    alert(navigator.platform);
+    alert(getOS());
     if(navigator.platform=='Android' || navigator.platform=='iOS'){
     navigator.clipboard.writeText(shared_url).then(function() {
       alert('Copied Meeting URL Successfully');
@@ -59,6 +59,30 @@
       window.open('https://web.whatsapp.com/send?text=' + shared_url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=1000,height=500");
     }
   });
+
+
+  function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'Mac OS';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'iOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'Windows';
+    } else if (/Android/.test(userAgent)) {
+      os = 'Android';
+    } else if (!os && /Linux/.test(platform)) {
+      os = 'Linux';
+    }
+
+    return os;
+  }
 
   socket.on('bye', function(id) {
     handleRemoteHangup(id);
